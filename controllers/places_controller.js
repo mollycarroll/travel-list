@@ -1,0 +1,41 @@
+const express = require('express');
+const places = express.Router();
+const Place = require('../models/places.js');
+
+
+// routes
+//index
+places.get('/', (req, res) => {
+    Place.find({}, (error, places) => {
+        res.render('places/index.ejs', {
+            allPlaces: places
+        })
+    })
+});
+
+places.get('/seed', (req, res) => {
+    Place.create([
+        {
+            city: 'Berlin',
+            country: 'Germany',
+            img: 'https://www.themasculinetraveler.com/wp-content/uploads/2017/04/Berlin-Germany.jpg',
+            visited: false
+        }, 
+        {
+            city: 'Galway', 
+            country: 'Ireland',
+            img: 'https://www.irelandbeforeyoudie.com/wp-content/uploads/2014/10/Dunguaire-Castle.jpg',
+            visited: true
+        },
+        {
+            city: 'Tokyo',
+            country: 'Japan',
+            img: 'https://globalxnetwork.com/wp-content/uploads/2015/03/tokyo-japan-3.jpg',
+            visited: false
+        }
+    ], (err, data) => {
+        res.redirect('/places');
+    })
+})
+
+module.exports = places;

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../partials/head.ejs') %>
+</head>
+<body>
+    <%- include ('../partials/header.ejs') %>
+    
+    <ul>
+        <% for (let i = 0; i < allPlaces.length; i++) { %>
+            <li>
+                <%= allPlaces[i].city %>
+            </li>
+        <% } %>
+    </ul>
+</body>
+</html>
