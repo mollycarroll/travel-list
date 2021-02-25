@@ -9,7 +9,7 @@
     <ul>
         <% for (let i = 0; i < allPlaces.length; i++) { %>
             <li>
-                <%= allPlaces[i].city %>
+                <a href="/places/<%=allPlaces[i].id%>"><%= allPlaces[i].city %></a>
             </li>
         <% } %>
     </ul>

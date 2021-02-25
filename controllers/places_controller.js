@@ -65,4 +65,25 @@ places.get('/:id/edit', (req, res) => {
     })
 });
 
+// update
+places.put('/:id', (req, res)=>{
+    if(req.body.visited === 'on'){
+        req.body.visited = true;
+    } else {
+        req.body.visited = false;
+    }
+    Place.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedModel)=> {
+      res.redirect('/places');
+    })
+  });
+
+// show
+places.get('/:id', (req, res) => {
+    Place.findById(req.params.id, (error, foundPlace) => {
+        res.render('places/show.ejs', {
+            place: foundPlace
+        })
+    })
+});
+
 module.exports = places;

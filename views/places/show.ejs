@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../partials/head.ejs') %>
+</head>
+<body>
+    <%- include ('../partials/header.ejs') %>
+    <h1>Hi from the show page!</h1>
+    <h2><%= place.city %> is a city I want to visit!</h2>
+    <a href="/places/<%=place.id%>/edit">Edit Entry</a>
+</body>
+</html>
