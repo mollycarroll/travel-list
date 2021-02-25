@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
-const places = require('../controllers/places_controller');
 
 const placeSchema = new mongoose.Schema({
     city: String,
     country: String,
-    img: String,
+    img: String, // could I use an API to populate this?
     visited: Boolean,
 });
 

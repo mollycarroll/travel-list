@@ -36,6 +36,33 @@ places.get('/seed', (req, res) => {
     ], (err, data) => {
         res.redirect('/places');
     })
-})
+});
+
+// new
+places.get('/new', (req, res) => {
+    res.render('places/new.ejs');
+});
+
+// post (create)
+places.post('/', (req, res) => {
+    if (req.body.visited === 'on') {
+        req.body.visited = true;
+    } else {
+        req.body.visited = false;
+    }
+    Place.create(req.body, (error, createdPlace) => {
+        res.redirect('/places');
+    })
+});
+
+// edit
+places.get('/:id/edit', (req, res) => {
+    Place.findById(req.params.id, (error, foundPlace) => {
+        res.render('places/edit.ejs', {
+            place: foundPlace,
+            method: 'PUT'
+        })
+    })
+});
 
 module.exports = places;

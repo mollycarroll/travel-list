@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../partials/head.ejs') %>
+</head>
+<body>
+    <%- include ('../partials/header.ejs') %>
+    <form action="/places" method="POST">
+    City: <input type="text" name="city" id="city" /><br/>
+    Country: <input type="text" name="country" id="country" /> <br/>
+    Image URL: <input type="text" name="img" id="img" /><br/>
+    Visited? <input type="checkbox" name="visited" id="visited" /><br/>
+    <input type="submit" name="" value="New Entry"/>
+    </form>
+</body>
+</html>
