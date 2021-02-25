@@ -5,7 +5,10 @@
 </head>
 <body>
     <%- include ('../partials/header.ejs') %>
-    
+
+<div class="d-flex justify-content-around">
+    <img class=" map-img" src="https://i.imgur.com/kSjqhbT.jpg">
+
     <ul>
         <% for (let i = 0; i < allPlaces.length; i++) { %>
             <li>
@@ -13,5 +16,8 @@
             </li>
         <% } %>
     </ul>
+</div>
+
+
 </body>
 </html>
