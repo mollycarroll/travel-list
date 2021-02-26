@@ -9,7 +9,8 @@ const { isAuthenticated } = require('../services.js');
 places.get('/', (req, res) => {
     Place.find({}, (error, places) => {
         res.render('places/index.ejs', {
-            allPlaces: places
+            allPlaces: places,
+            currentUser: req.session.currentUser
         })
     })
 });
@@ -42,7 +43,9 @@ places.get('/seed', (req, res) => {
 
 // new
 places.get('/new', isAuthenticated, (req, res) => {
-    res.render('places/new.ejs');
+    res.render('places/new.ejs', {
+        currentUser: req.session.currentUser
+    });
 });
 
 // post (create)
@@ -62,7 +65,8 @@ places.get('/:id/edit', isAuthenticated, (req, res) => {
     Place.findById(req.params.id, (error, foundPlace) => {
         res.render('places/edit.ejs', {
             place: foundPlace,
-            method: 'PUT'
+            method: 'PUT',
+            currentUser: req.session.currentUser
         })
     })
 });
@@ -83,7 +87,8 @@ places.put('/:id', (req, res)=>{
 places.get('/:id', isAuthenticated, (req, res) => {
     Place.findById(req.params.id, (error, foundPlace) => {
         res.render('places/show.ejs', {
-            place: foundPlace
+            place: foundPlace,
+            currentUser: req.session.currentUser
         })
     })
 });

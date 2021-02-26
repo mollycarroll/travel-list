@@ -6,8 +6,18 @@
 <body>
     <%- include ('../partials/header.ejs') %>
 
-<div class="d-flex justify-content-around">
-    <!-- <img class=" map-img" src="https://i.imgur.com/kSjqhbT.jpg"> -->
+<div class="d-flex justify-content-around flex-wrap">
+    <!-- <img class="map-img" src="https://i.imgur.com/kSjqhbT.jpg"> -->
+
+        <!-- <% for (let i = 0; i < allPlaces.length; i++) { %>
+        <div class="card index-card">
+        <h4><%= allPlaces[i].city %>, <%= allPlaces[i].country %></h4>
+        <br>
+       <figure class="d-flex justify-content-around">
+            <img src="<%= allPlaces[i].img %>">
+        </figure>
+    </div>
+        <% } %>  -->
 
     <ul>
         <% for (let i = 0; i < allPlaces.length; i++) { %>
@@ -15,17 +25,6 @@
                 <a href="/places/<%=allPlaces[i].id%>"><%= allPlaces[i].city %></a>
             </li>
         <% } %>
-    </ul>
-</div>
-
-<div class="user-buttons">
-    <ul>
-        <li><a href="/sessions/new">Log in</a></li>
-        <li>
-          <form action="/sessions?_method=DELETE" method="POST">
-              <input type="submit" value="Log Out" />
-            </form>
-        </li>
     </ul>
 </div>
 

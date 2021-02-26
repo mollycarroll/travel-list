@@ -7,8 +7,16 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="/places">Home</a>
-          <a class="nav-link" href="/places/new">Create Entry</a>
+          <% if (currentUser) { %>
+            <li class="nav-link">Hello <%= currentUser.username %></li>
+            <a class="nav-link" href="/places/new">Create Entry</a>
+            <form action="/sessions?_method=DELETE" method="POST">
+              <input class="nav-link" type="submit" value="Log Out" />
+            </form>
+            <% } %>
+          <a class="nav-link" aria-current="page" href="/places">Home</a>
+          <a class="nav-link" href="/users/new">Create Account</a>
+          <a class="nav-link" href="/sessions/new">Log In</a>
         </div>
       </div>
     </div>
