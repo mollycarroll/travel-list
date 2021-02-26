@@ -93,4 +93,11 @@ places.get('/:id', isAuthenticated, (req, res) => {
     })
 });
 
+// delete
+places.delete('/:id', (req, res) => {
+    Place.findByIdAndRemove(req.params.id, { useFindAndModify: false }, (error, data) => {
+        res.redirect('/places');
+    })
+});
+
 module.exports = places;
