@@ -2,6 +2,7 @@ const express = require('express');
 const places = express.Router();
 const Place = require('../models/places.js');
 
+const { isAuthenticated } = require('../services.js');
 
 // routes
 //index
@@ -13,6 +14,7 @@ places.get('/', (req, res) => {
     })
 });
 
+// seed
 places.get('/seed', (req, res) => {
     Place.create([
         {
@@ -39,7 +41,7 @@ places.get('/seed', (req, res) => {
 });
 
 // new
-places.get('/new', (req, res) => {
+places.get('/new', isAuthenticated, (req, res) => {
     res.render('places/new.ejs');
 });
 
@@ -56,7 +58,7 @@ places.post('/', (req, res) => {
 });
 
 // edit
-places.get('/:id/edit', (req, res) => {
+places.get('/:id/edit', isAuthenticated, (req, res) => {
     Place.findById(req.params.id, (error, foundPlace) => {
         res.render('places/edit.ejs', {
             place: foundPlace,
@@ -78,7 +80,7 @@ places.put('/:id', (req, res)=>{
   });
 
 // show
-places.get('/:id', (req, res) => {
+places.get('/:id', isAuthenticated, (req, res) => {
     Place.findById(req.params.id, (error, foundPlace) => {
         res.render('places/show.ejs', {
             place: foundPlace

@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const session = require('express-session');
-const bcrypt = require('bcryptjs');
+
+const {logRequest} = require('./services.js');
 
 // import and configure dotenv
 require('dotenv').config();
@@ -15,7 +16,8 @@ const mongodbURI = process.env.MONGODBURI
 
 // controllers
 const placesController = require('./controllers/places_controller.js');
-const sessionsController = require('./controllers/sessions.js');
+const sessionsController = require('./controllers/sessions_controller.js');
+const usersController = require('./controllers/users_controller.js');
 
 // middleware
 app.use(express.json());
@@ -31,9 +33,11 @@ app.use(
       }
     )
   );
+app.use(logRequest);
 
 app.use('/places', placesController);
 app.use('/sessions', sessionsController);
+app.use('/users', usersController);
 
 // mongoose connection logic
 mongoose.connect(`mongodb://localhost:27017/places`, { 
