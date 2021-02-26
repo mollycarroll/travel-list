@@ -1,8 +1,53 @@
 const express = require('express');
 const places = express.Router();
 const Place = require('../models/places.js');
+const Country = require('../models/countries.js');
+const axios = require('axios');
+
+/*
+
+TODO:
+
+1. Get the seed data JSON key: country code, value: name
+2. Store in countries collection name of every country and formatted string in flag img
+3. Set up another GET route that res.send(flag img url)
+
+*/
 
 const { isAuthenticated } = require('../services.js');
+
+// experiment - seed countries - how do I get the Country model in here??? 
+places.get('/seedcountries', (req, res) => {
+    const jsonURL = 'https://flagcdn.com/en/codes.json';
+
+    const baseURL = 'https://flagcdn.com/w160/';
+
+    axios.get(jsonURL).then((data) => {
+
+        for (let key in data.data) {
+
+            Country.create(
+                {
+                    flagImg: baseURL + key + '.png',
+                    countryCode: key
+                }, (error, country) => {
+                if (error) {
+                    console.log(error)
+                } else {
+                    console.log(country.flagImg);
+                }
+            })
+        }
+
+        res.send('Got seed country data');
+    })
+});
+
+places.get('/flagurl', (req, res) => {
+    Country.find({}, (error, allCountries) => {
+        res.send(allCountries);
+    })
+})
 
 // routes
 //index
@@ -55,7 +100,14 @@ places.post('/', (req, res) => {
     } else {
         req.body.visited = false;
     }
+
+    // how does this work?
+    // if (req.body.country === option.value) {
+    //     req.body.country = option.value;
+    // }
+
     Place.create(req.body, (error, createdPlace) => {
+    
         res.redirect('/places');
     })
 });

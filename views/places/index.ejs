@@ -19,15 +19,28 @@
     </div>
         <% } %>  -->
 
-    <ul>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <% for (let i = 0; i < allPlaces.length; i++) { %>
+            <div class="col">
+              <div class="card">
+                <img src="https://flagcdn.com/w160/ci.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><%= allPlaces[i].city %>, <%= allPlaces[i].country %></h5>
+                </div>
+              </div>
+            </div>
+            <% } %>
+        </div>
+
+    <!-- <ul>
         <% for (let i = 0; i < allPlaces.length; i++) { %>
             <li>
                 <a href="/places/<%=allPlaces[i].id%>"><%= allPlaces[i].city %></a>
             </li>
         <% } %>
-    </ul>
+    </ul> -->
 </div>
 
-
+<%- include ('../partials/footer.ejs') %>
 </body>
 </html>

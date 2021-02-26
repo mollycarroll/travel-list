@@ -2,7 +2,7 @@
     border: 1px solid black;
 } */
 
-/* colors: */
+/* colors: https://coolors.co/c5a181-1b1b3a-b9314f-43aa8b-6699cc */
 
 body {
     background-color: #c5a181;
@@ -57,3 +57,7 @@ body {
     padding: 5%;
     width: 300px;
 } */
+
+.home-card {
+    opacity: .4;
+}
