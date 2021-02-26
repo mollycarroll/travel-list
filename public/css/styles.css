@@ -1,9 +1,43 @@
+/* * {
+    border: 1px solid black;
+} */
+
+/* colors: */
+
+body {
+    background-color: #c5a181;
+    background-image: url("notebook.png");
+}
+
 .navbar-nav {
     margin-left: auto;
 }
 
 .map-img {
     width: 50%;
+}
+
+.show-img {
+    width: 70%;
+}
+
+.show-container {
+    background-color: #B9314F;
+    border-radius: 20px;
+    padding: 2%;
+    margin-top: 5%;
+}
+
+.show-place-name {
+    text-align: center;
+    color: #ffffff;
+}
+
+.show-buttons {
+    background-color: #1B1B3A;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
 }
 
 /* figure {

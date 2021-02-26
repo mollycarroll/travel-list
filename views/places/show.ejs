@@ -5,11 +5,27 @@
 </head>
 <body>
     <%- include ('../partials/header.ejs') %>
-    <h1>Hi from the show page!</h1>
-    <h2><%= place.city %> is a city I want to visit!</h2>
-    <a href="/places/<%=place.id%>/edit">Edit Entry</a>
-    <form action="/places/<%= place.id %>?_method=DELETE" method="POST">
-        <input type="submit" value="Delete Entry"/>
-    </form>
+
+    <div class="container show-container">
+        <div class="row centered-row align-items-center justify-content-around">
+            <div class="col first-show-col">
+            <h1 class="show-place-name"><%= place.city %>, <%= place.country %></h1>
+            <br/>
+            <div class="d-flex justify-content-around">
+        <a href="/places/<%=place.id%>/edit"><button class="show-buttons">Edit Entry</button></a>
+        <form action="/places/<%= place.id %>?_method=DELETE" method="POST">
+            <button class="show-buttons">
+        <input class="show-buttons" type="submit" value="Delete Entry"/>
+            </button>
+        </form>
+    </div>
+            </div>
+            <div class="col d-flex justify-content-center">
+              <img class="show-img" src="<%= place.img %>">
+            </div>
+          </div>
+    </div>
+
+
 </body>
 </html>
