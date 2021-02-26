@@ -15,6 +15,7 @@ const mongodbURI = process.env.MONGODBURI
 
 // controllers
 const placesController = require('./controllers/places_controller.js');
+const sessionsController = require('./controllers/sessions.js');
 
 // middleware
 app.use(express.json());
@@ -32,6 +33,7 @@ app.use(
   );
 
 app.use('/places', placesController);
+app.use('/sessions', sessionsController);
 
 // mongoose connection logic
 mongoose.connect(`mongodb://localhost:27017/places`, { 

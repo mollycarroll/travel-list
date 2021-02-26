@@ -7,7 +7,7 @@
     <%- include ('../partials/header.ejs') %>
 
 <div class="d-flex justify-content-around">
-    <img class=" map-img" src="https://i.imgur.com/kSjqhbT.jpg">
+    <!-- <img class=" map-img" src="https://i.imgur.com/kSjqhbT.jpg"> -->
 
     <ul>
         <% for (let i = 0; i < allPlaces.length; i++) { %>
@@ -15,6 +15,17 @@
                 <a href="/places/<%=allPlaces[i].id%>"><%= allPlaces[i].city %></a>
             </li>
         <% } %>
+    </ul>
+</div>
+
+<div class="user-buttons">
+    <ul>
+        <li><a href="/sessions/new">Log in</a></li>
+        <li>
+          <form action="/sessions?_method=DELETE" method="POST">
+              <input type="submit" value="Log Out" />
+            </form>
+        </li>
     </ul>
 </div>
 
