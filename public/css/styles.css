@@ -17,6 +17,11 @@ body {
     width: 50%;
 }
 
+.container {
+    width: 70%;
+    margin-top: 10%;
+}
+
 .show-img {
     width: 70%;
 }
@@ -40,24 +45,3 @@ body {
     border-radius: 5px;
 }
 
-/* figure {
-    width: 200px;
-    overflow: hidden; 
-    object-fit: cover;
-    margin: 0;
- }
-
- figure img {
-    display: block; 
-    width: 100%; 
- }
-
-.index-card {
-    background-color: darkgoldenrod;
-    padding: 5%;
-    width: 300px;
-} */
-
-.home-card {
-    opacity: .4;
-}

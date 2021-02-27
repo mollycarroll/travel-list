@@ -8,9 +8,7 @@ const axios = require('axios');
 
 TODO:
 
-1. Get the seed data JSON key: country code, value: name
-2. Store in countries collection name of every country and formatted string in flag img
-3. Set up another GET route that res.send(flag img url)
+1. Set up oneToMany relationship between Place and Country models
 
 */
 
@@ -20,7 +18,7 @@ const { isAuthenticated } = require('../services.js');
 places.get('/seedcountries', (req, res) => {
     const jsonURL = 'https://flagcdn.com/en/codes.json';
 
-    const baseURL = 'https://flagcdn.com/w160/';
+    const baseURL = 'https://flagcdn.com/w320/';
 
     axios.get(jsonURL).then((data) => {
 
