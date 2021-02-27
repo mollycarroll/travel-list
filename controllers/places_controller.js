@@ -8,13 +8,14 @@ const axios = require('axios');
 
 TODO:
 
-1. Set up oneToMany relationship between Place and Country models
+1. Figure out why/fix Create route (probably broken due to model relationship issues)
+2. Set up oneToMany relationship between Place and Country models
 
 */
 
 const { isAuthenticated } = require('../services.js');
 
-// experiment - seed countries - how do I get the Country model in here??? 
+// experiment - seed countries
 places.get('/seedcountries', (req, res) => {
     const jsonURL = 'https://flagcdn.com/en/codes.json';
 
@@ -25,14 +26,14 @@ places.get('/seedcountries', (req, res) => {
         for (let key in data.data) {
 
             Country.create(
-                {
+                {   
+                    countryCode: key.toUpperCase(),
                     flagImg: baseURL + key + '.png',
-                    countryCode: key
                 }, (error, country) => {
                 if (error) {
                     console.log(error)
                 } else {
-                    console.log(country.flagImg);
+                    console.log(country);
                 }
             })
         }
@@ -99,7 +100,7 @@ places.post('/', (req, res) => {
         req.body.visited = false;
     }
 
-    // how does this work?
+    // how does this work? for dropdown menu
     // if (req.body.country === option.value) {
     //     req.body.country = option.value;
     // }
