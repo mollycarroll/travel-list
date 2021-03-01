@@ -14,11 +14,16 @@ places.get('/seedcountries', (req, res) => {
 
     axios.get(jsonURL).then((data) => {
 
-        for (let key in data.data) { // let key, value does not work here -- how to access the value?
+        console.log(data.data);
+
+        for (let [key, value] of Object.entries(data.data)) { 
+
+            console.log(key, value);
 
             Country.create(
                 {   
-                    countryCode: key.toUpperCase(), // can I also add countryName: value somehow?
+                    countryName: value,
+                    countryCode: key.toUpperCase(),
                     flagImg: baseURL + key + '.png',
                 }, (error, country) => {
                 if (error) {
@@ -54,8 +59,8 @@ places.get('/', (req, res) => {
 // get route for search form on a page
 // type in country name, then try to query the countries collection to match (searchable collection of countries)
 
-places.get('/search/:countryCode', (req, res) => {
-    console.log(req.params.countryCode)
+places.get('/search', (req, res) => {
+    // console.log(req.query.countryCode);
 
     // Country.find({}, (error, countries) => {
     //     res.render('places/search.ejs', {
@@ -64,32 +69,31 @@ places.get('/search/:countryCode', (req, res) => {
     //     }) 
     // })
     
-    Country.findOne({ countryCode: req.params.countryCode }, (error, foundCountry) => {
+    Country.findOne({ countryCode: req.query.countryCode }, (error, foundCountry) => {
         console.log(foundCountry.flagImg); 
         res.send(foundCountry.flagImg);
     })
 })
-// when I go to the Search page, the first country is console logged somehow via findOne -- the form should indicate which country and the console log shouldn't fire until the form is submitted
 
-// seed - need to change country: to its Country reference somehow
+// seed
 places.get('/seed', (req, res) => {
     Place.create([
         {
             city: 'Berlin',
             country: 'Germany',
-            img: 'https://www.themasculinetraveler.com/wp-content/uploads/2017/04/Berlin-Germany.jpg',
+            img: 'https://flagcdn.com/w320/de.png',
             visited: false
         }, 
         {
             city: 'Galway', 
             country: 'Ireland',
-            img: 'https://www.irelandbeforeyoudie.com/wp-content/uploads/2014/10/Dunguaire-Castle.jpg',
+            img: 'https://flagcdn.com/w320/ie.png',
             visited: true
         },
         {
             city: 'Tokyo',
             country: 'Japan',
-            img: 'https://globalxnetwork.com/wp-content/uploads/2015/03/tokyo-japan-3.jpg',
+            img: 'https://flagcdn.com/w320/jp.png',
             visited: false
         }
     ], (err, data) => {
@@ -112,16 +116,20 @@ places.post('/', (req, res) => {
         req.body.visited = false;
     }
 
-    // how do I use the drop down menu values for the Place's country: key?
-
-    Place.create(req.body, (error, createdPlace) => {
+    Country.findOne({ countryName: req.body.country }, (error, foundCountry) => {
+        req.body.img = foundCountry.flagImg;
+        console.log('req.body.img line 121 ' + req.body.img)
     
-        res.redirect('/places');
-    })
+        Place.create(req.body, (error, createdPlace) => {
+            res.redirect('/places');
+        })
+
+    });
 });
 
 // edit
 places.get('/:id/edit', isAuthenticated, (req, res) => {
+
     Place.findById(req.params.id, (error, foundPlace) => {
         res.render('places/edit.ejs', {
             place: foundPlace,
@@ -133,13 +141,24 @@ places.get('/:id/edit', isAuthenticated, (req, res) => {
 
 // update
 places.put('/:id', (req, res)=>{
+    console.log('countryName on line 147 ' + req.body.country); 
+
     if(req.body.visited === 'on'){
         req.body.visited = true;
     } else {
         req.body.visited = false;
     }
-    Place.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedModel)=> {
-      res.redirect('/places');
+
+    Country.findOne({ countryName: req.body.country }, (error, foundCountry) => {
+        console.log('foundCountry line 156 ' + foundCountry) 
+
+        req.body.img = foundCountry.flagImg;
+        console.log(req.body);
+
+        Place.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedModel)=> {
+            res.redirect('/places')
+        })
+
     })
   });
 

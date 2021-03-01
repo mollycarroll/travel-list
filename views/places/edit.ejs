@@ -11,8 +11,9 @@
     <div class="col d-flex justify-content-center">
         <form action="/places/<%=place.id%>?_method=PUT" method="POST">
         City: <input type="text" name="city" id="city" value="<%=place.city %>"/><br/><br/>
+
         Country: <input type="text" name="country" id="country" value="<%=place.country%>" /> <br/><br/>
-        Image URL: <input type="text" name="img" id="img" value="<%=place.img%>" /><br/><br/>
+        
         Visited? <input type="checkbox" name="visited" id="visited" 
         <% if (place.visited === true) { %>
         checked
