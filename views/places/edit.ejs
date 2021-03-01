@@ -5,16 +5,23 @@
 </head>
 <body>
     <%- include ('../partials/header.ejs') %>
-    <form action="/places/<%=place.id%>?_method=PUT" method="POST">
-    City: <input type="text" name="city" id="city" value="<%=place.city %>"/><br/>
-    Country: <input type="text" name="country" id="country" value="<%=place.country%>" /> <br/>
-    Image URL: <input type="text" name="img" id="img" value="<%=place.img%>" /><br/>
-    Visited? <input type="checkbox" name="visited" id="visited" 
-    <% if (place.visited === true) { %>
+
+    <div class="container new-edit-container">
+    <div class="row centered-row align-items-center justify-content-around">
+    <div class="col d-flex justify-content-center">
+        <form action="/places/<%=place.id%>?_method=PUT" method="POST">
+        City: <input type="text" name="city" id="city" value="<%=place.city %>"/><br/><br/>
+        Country: <input type="text" name="country" id="country" value="<%=place.country%>" /> <br/><br/>
+        Image URL: <input type="text" name="img" id="img" value="<%=place.img%>" /><br/><br/>
+        Visited? <input type="checkbox" name="visited" id="visited" 
+        <% if (place.visited === true) { %>
         checked
-    <% } %>
-    /><br/>
-    <input type="submit" name="" value="Edit Entry"/>
-    </form>
+        <% } %>
+        /><br/><br/>
+        <input type="submit" name="" value="Edit Entry"/>
+        </form>
+    </div>
+    </div>
+    </div>
 </body>
 </html>

@@ -49,3 +49,9 @@ body {
     border-radius: 5px;
 }
 
+.new-edit-container {
+    background-color: #6699CC;
+    border-radius: 20px;
+    padding: 2%;
+    margin-top: 5%;
+}
