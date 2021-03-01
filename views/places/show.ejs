@@ -11,6 +11,13 @@
             <div class="col first-show-col">
             <h1 class="show-place-name"><%= place.city %>, <%= place.country %></h1>
             <br/>
+            <p class="text-center text-white">
+            <% if (place.visited === true) { %>
+            I have visited <%= place.city %>.
+            <% } else { %>
+            I've never visited <%= place.city %>!
+            <% } %>
+            </p>
             <div class="d-flex justify-content-around">
         <a href="/places/<%=place.id%>/edit"><button class="show-buttons">Edit Entry</button></a>
         <form action="/places/<%= place.id %>?_method=DELETE" method="POST">

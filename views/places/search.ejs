@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include ('../partials/head.ejs') %>
+</head>
+<body>
+    <%- include ('../partials/header.ejs') %>
+
+    <form action="/search" method="GET">
+        Country Code: <input type="text" name="countryCode" id="countryCode" />
+        <input type="submit" name="submit" value="Search Countries"/>
+    </form>
+
+</body>
+</html>

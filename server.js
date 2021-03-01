@@ -40,7 +40,7 @@ app.use('/sessions', sessionsController);
 app.use('/users', usersController);
 
 // mongoose connection logic
-mongoose.connect(`mongodb://localhost:27017/places`, { 
+mongoose.connect(mongodbURI, { 
   useNewUrlParser: true, 
   useUnifiedTopology: true 
 });
