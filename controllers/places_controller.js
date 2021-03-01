@@ -54,21 +54,22 @@ places.get('/', (req, res) => {
 // get route for search form on a page
 // type in country name, then try to query the countries collection to match (searchable collection of countries)
 
-places.get('/search', (req, res) => {
+places.get('/search/:countryCode', (req, res) => {
+    console.log(req.params.countryCode)
 
-    Country.find({}, (error, countries) => {
-        res.render('places/search.ejs', {
-            allCountries: countries,
-            currentUser: req.session.currentUser
-        }) 
-    })
+    // Country.find({}, (error, countries) => {
+    //     res.render('places/search.ejs', {
+    //         allCountries: countries,
+    //         currentUser: req.session.currentUser
+    //     }) 
+    // })
     
-// why doesn't this work? What DOES work?
-    Country.findOne(req.params.countryCode, (error, foundCountry) => {
-        console.log(foundCountry);
+    Country.findOne({ countryCode: req.params.countryCode }, (error, foundCountry) => {
+        console.log(foundCountry.flagImg); 
+        res.send(foundCountry.flagImg);
     })
 })
-// when I go to the Search page, the first country is console logged somehow via findOne -- the form should indicate which country..
+// when I go to the Search page, the first country is console logged somehow via findOne -- the form should indicate which country and the console log shouldn't fire until the form is submitted
 
 // seed - need to change country: to its Country reference somehow
 places.get('/seed', (req, res) => {
@@ -143,7 +144,7 @@ places.put('/:id', (req, res)=>{
   });
 
 // show
-places.get('/:id', isAuthenticated, (req, res) => {
+places.get('/:id', (req, res) => {
     Place.findById(req.params.id, (error, foundPlace) => {
         res.render('places/show.ejs', {
             place: foundPlace,
