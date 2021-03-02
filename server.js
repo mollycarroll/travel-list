@@ -16,7 +16,7 @@ require('dotenv').config();
 const app = express();
 const db = mongoose.connection;
 const port = process.env.PORT || 3000;
-const mongodbURI = process.env.MONGODBURI
+const mongodbURI = process.env.MONGODBURI || 'mongodb://localhost:27017/places';
 
 // controllers
 const placesController = require('./controllers/places_controller.js');
