@@ -6,7 +6,7 @@ const axios = require('axios');
 
 const { isAuthenticated } = require('../services.js');
 
-// seed countries so there is a collection of countries 
+// seed countries
 places.get('/seedcountries', (req, res) => {
     const jsonURL = 'https://flagcdn.com/en/codes.json';
 
@@ -39,11 +39,11 @@ places.get('/seedcountries', (req, res) => {
 });
 
 // this displays all countries as JSON in the browser
-places.get('/flagurl', (req, res) => {
-    Country.find({}, (error, allCountries) => {
-        res.send(allCountries);
-    })
-})
+// places.get('/flagurl', (req, res) => {
+//     Country.find({}, (error, allCountries) => {
+//         res.send(allCountries);
+//     })
+// })
 
 // routes
 //index
@@ -75,6 +75,12 @@ places.get('/seed', (req, res) => {
             city: 'Tokyo',
             country: 'Japan',
             img: 'https://flagcdn.com/w320/jp.png',
+            visited: false
+        },
+        {
+            city: 'Lima',
+            country: 'Peru',
+            img: 'https://flagcdn.com/w320/pe.png',
             visited: false
         }
     ], (err, data) => {

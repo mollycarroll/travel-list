@@ -69,3 +69,7 @@ a:hover {
     padding: 2%;
     margin-top: 5%;
 }
+
+.footer-link {
+    text-decoration: underline;
+}

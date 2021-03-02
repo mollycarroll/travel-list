@@ -1,7 +1,3 @@
-// TODO: deploy to Heroku
-// there is a problem with my config vars
-// review recording of lesson 
-
 const express = require('express');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
