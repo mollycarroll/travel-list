@@ -38,7 +38,16 @@ h1, h2 {
 
 .container {
     width: 70%;
-    margin-top: 10%;
+    margin-top: 2%;
+}
+
+.upper {
+    margin-top: 2%;
+}
+
+.home-button:hover {
+    background-color: #218380;
+    border: 1px solid #218380;
 }
 
 .home-card {

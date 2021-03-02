@@ -1,3 +1,10 @@
+const openInstructions = () => {
+    $('#instructionsModal').modal('show');
+}
+
+const closeInstructions = () => {
+    $('#instructionsModal').modal('hide');
+}
 
 $(() => {
 
@@ -6,4 +13,7 @@ $(() => {
     }, function() {
         $(this).removeClass('transition');
     });
+
+    
+
 });
