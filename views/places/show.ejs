@@ -11,11 +11,12 @@
             <div class="col first-show-col">
             <h1 class="show-place-name"><%= place.city %>, <%= place.country %></h1>
             <br/>
+            <p class="text-white"><%= place.notes %></p>
             <p class="text-center text-white">
             <% if (place.visited === true) { %>
-            I have visited <%= place.city %>.
+            Visited: ✔️
             <% } else { %>
-            I've never visited <%= place.city %>!
+            Visited: ❌
             <% } %>
             </p>
             <div class="d-flex justify-content-around">

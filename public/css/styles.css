@@ -2,7 +2,9 @@
     border: 1px solid black;
 } */
 
-/* colors: https://coolors.co/c5a181-1b1b3a-b9314f-43aa8b-6699cc */
+/* colors: https://coolors.co/c5a181-69626d-0a8754-2ab7ca-020100 */
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 
 body {
     background-color: #c5a181;
@@ -14,8 +16,12 @@ a {
     color: #000000;
 }
 
-a:hover {
-    color: #43AA8B;
+h1, h2 {
+    font-family: 'Merriweather', serif;
+}
+
+.m-font {
+    font-family: 'Merriweather', serif;
 }
 
 .navbar-nav {
@@ -34,6 +40,7 @@ a:hover {
 .home-card {
     margin-top: 5%;
     transition: top 4s;
+    font-family: 'Merriweather', serif;
 }
 
 .home-card:hover {
@@ -45,7 +52,7 @@ a:hover {
 }
 
 .show-container {
-    background-color: #B9314F;
+    background-color: #69626D;
     border-radius: 20px;
     padding: 2%;
     margin-top: 5%;
@@ -64,10 +71,11 @@ a:hover {
 }
 
 .new-edit-container {
-    background-color: #6699CC;
+    background-color: #69626D;
     border-radius: 20px;
     padding: 2%;
     margin-top: 5%;
+    width: 50%;
 }
 
 .footer-link {

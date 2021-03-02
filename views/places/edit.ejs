@@ -8,13 +8,17 @@
 
     <div class="container new-edit-container">
     <div class="row centered-row align-items-center justify-content-around">
+        <h2 class="text-center text-white">Edit Entry</h2><br/>
     <div class="col d-flex justify-content-center">
         <form action="/places/<%=place.id%>?_method=PUT" method="POST">
-        City: <input type="text" name="city" id="city" value="<%=place.city %>"/><br/><br/>
-
-        Country: <input type="text" name="country" id="country" value="<%=place.country%>" /> <br/><br/>
-        
-        Visited? <input type="checkbox" name="visited" id="visited" 
+        <label for="city" class="text-white">City:</label>
+        <input type="text" name="city" id="city" value="<%=place.city %>"/><br/><br/>
+        <label for="country" class="text-white">Country:</label>
+        <input type="text" name="country" id="country" value="<%=place.country%>" /> <br/><br/>
+        <label for="notes" class="text-white">Notes:</label>
+        <input type="text" name="notes" id="notes" value="<%= place.notes %>"/> <br/><br/>
+        <label for="visited" class="text-white">Visited:</label>
+        <input type="checkbox" name="visited" id="visited" 
         <% if (place.visited === true) { %>
         checked
         <% } %>

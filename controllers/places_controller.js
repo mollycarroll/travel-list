@@ -69,13 +69,15 @@ places.get('/seed', (req, res) => {
             city: 'Galway', 
             country: 'Ireland',
             img: 'https://flagcdn.com/w320/ie.png',
-            visited: true
+            visited: true,
+            notes: 'Galway has beautiful Irish landscapes and a rich history. I loved visiting the Cliffs of Moher!'
         },
         {
             city: 'Tokyo',
             country: 'Japan',
             img: 'https://flagcdn.com/w320/jp.png',
-            visited: false
+            visited: false,
+            notes: 'こんにちは！ I am learning Japanese to visit Japan.'
         },
         {
             city: 'Lima',
