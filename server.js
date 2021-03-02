@@ -16,7 +16,7 @@ require('dotenv').config();
 const app = express();
 const db = mongoose.connection;
 const port = process.env.PORT || 3000;
-const mongodbURI = process.env.MONGODBURI || 'mongodb://localhost:27017/places';
+const MONGODBURI = process.env.MONGODBURI || 'mongodb://localhost:27017/places';
 
 // controllers
 const placesController = require('./controllers/places_controller.js');
@@ -44,7 +44,7 @@ app.use('/sessions', sessionsController);
 app.use('/users', usersController);
 
 // mongoose connection logic
-mongoose.connect(mongodbURI, { 
+mongoose.connect(MONGODBURI, { 
   useNewUrlParser: true, 
   useUnifiedTopology: true 
 });
@@ -54,8 +54,9 @@ mongoose.connection.once('open', ()=> {
 
 // Connection Error/Success
 // Define callback functions for various events
-db.on('error', err => console.log(err.message + ' is mongod not running?'))
-db.on('disconnected', () => console.log('mongo disconnected'))
+db.on('error', err => console.log(err.message + ' is mongod not running?'));
+db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
+db.on('disconnected', () => console.log('mongo disconnected'));
 
 
 // routes
