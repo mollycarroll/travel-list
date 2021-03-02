@@ -14,6 +14,10 @@ $(() => {
         $(this).removeClass('transition');
     });
 
-    
+    $('button.show-buttons').hover(function() {
+        $(this).addClass('button-transition');
+    }, function() {
+        $(this).removeClass('button-transition')
+    })
 
 });

@@ -6,12 +6,6 @@
 <body>
     <%- include ('../partials/header.ejs') %>
 
-<div class="upper d-flex justify-content-center">
-    <button type="button" class="btn btn-dark home-button" data-toggle="modal" data-target="#instructionsModal" onclick="openInstructions()">
-        Instructions
-      </button>
-
-    </div>
 <div class="d-flex justify-content-around flex-wrap">
 
 <div class="container">
@@ -29,6 +23,13 @@
             <% } %>
         </div>
 <br><br>
+
+<div class="upper d-flex justify-content-center">
+    <button type="button" class="btn btn-dark home-button" data-toggle="modal" data-target="#instructionsModal" onclick="openInstructions()">
+        Instructions
+      </button>
+
+    </div>
   
   <div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-labelledby="instructionsModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">

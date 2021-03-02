@@ -84,10 +84,20 @@ h1, h2 {
 }
 
 .show-buttons {
-    background-color: #1B1B3A;
-    color: #ffffff;
     border: none;
     border-radius: 5px;
+    transition: all .1s ease-in-out;
+    -webkit-transition: all .1s ease-in-out;
+	-moz-transition: all .1s ease-in-out;
+	-o-transition: all .1s ease-in-out;
+	-ms-transition: all .1s ease-in-out;
+}
+
+.button-transition {
+    -webkit-transform: scale(1.1); 
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 .new-edit-container {
