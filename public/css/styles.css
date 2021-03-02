@@ -16,6 +16,10 @@ a {
     color: #000000;
 }
 
+a:hover {
+    color: #000000;
+}
+
 h1, h2 {
     font-family: 'Merriweather', serif;
 }
@@ -83,6 +87,10 @@ h1, h2 {
 
 .footer-link {
     text-decoration: underline;
+}
+
+.footer-link:hover {
+    color: #218380;
 }
 
 .test {
