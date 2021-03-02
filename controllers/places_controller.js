@@ -56,25 +56,6 @@ places.get('/', (req, res) => {
     })
 });
 
-// get route for search form on a page
-// type in country name, then try to query the countries collection to match (searchable collection of countries)
-
-places.get('/search', (req, res) => {
-    // console.log(req.query.countryCode);
-
-    // Country.find({}, (error, countries) => {
-    //     res.render('places/search.ejs', {
-    //         allCountries: countries,
-    //         currentUser: req.session.currentUser
-    //     }) 
-    // })
-    
-    Country.findOne({ countryCode: req.query.countryCode }, (error, foundCountry) => {
-        console.log(foundCountry.flagImg); 
-        res.send(foundCountry.flagImg);
-    })
-})
-
 // seed
 places.get('/seed', (req, res) => {
     Place.create([
@@ -118,7 +99,6 @@ places.post('/', (req, res) => {
 
     Country.findOne({ countryName: req.body.country }, (error, foundCountry) => {
         req.body.img = foundCountry.flagImg;
-        console.log('req.body.img line 121 ' + req.body.img)
     
         Place.create(req.body, (error, createdPlace) => {
             res.redirect('/places');
@@ -141,7 +121,6 @@ places.get('/:id/edit', isAuthenticated, (req, res) => {
 
 // update
 places.put('/:id', (req, res)=>{
-    console.log('countryName on line 147 ' + req.body.country); 
 
     if(req.body.visited === 'on'){
         req.body.visited = true;
@@ -150,10 +129,8 @@ places.put('/:id', (req, res)=>{
     }
 
     Country.findOne({ countryName: req.body.country }, (error, foundCountry) => {
-        console.log('foundCountry line 156 ' + foundCountry) 
 
         req.body.img = foundCountry.flagImg;
-        console.log(req.body);
 
         Place.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedModel)=> {
             res.redirect('/places')

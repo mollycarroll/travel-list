@@ -7,25 +7,15 @@
     <%- include ('../partials/header.ejs') %>
 
 <div class="d-flex justify-content-around flex-wrap">
-    <!-- <img class="map-img" src="https://i.imgur.com/kSjqhbT.jpg"> -->
-
-        <!-- <% for (let i = 0; i < allPlaces.length; i++) { %>
-        <div class="card index-card">
-        <h4><%= allPlaces[i].city %>, <%= allPlaces[i].country %></h4>
-        <br>
-       <figure class="d-flex justify-content-around">
-            <img src="<%= allPlaces[i].img %>">
-        </figure>
-    </div>
-        <% } %>  -->
 <div class="container">
-        <div class="row row-cols-2 row-cols-md-3">
+        <div class="row row-cols-2 row-cols-md-4">
             <% for (let i = 0; i < allPlaces.length; i++) { %>
             <div class="col">
+                <a href="/places/<%=allPlaces[i].id%>">
               <div class="card home-card">
                 <img src="<%=allPlaces[i].img%>" class="card-img-top" alt="...">
                 <div class="card-body">
-                <a href="/places/<%=allPlaces[i].id%>"><h5 class="card-title text-center"><%= allPlaces[i].city %>, <%= allPlaces[i].country %></h5></a>
+                <h5 class="card-title text-center"><%= allPlaces[i].city %>, <%= allPlaces[i].country %></h5></a>
                 </div>
               </div>
             </div>

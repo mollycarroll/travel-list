@@ -1,6 +1,9 @@
 {
   "name": "travel-app",
   "version": "1.0.0",
+  "engines": {
+    "node": "15.6.0"
+  },
   "description": "",
   "main": "server.js",
   "scripts": {
@@ -26,7 +29,6 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "method-override": "^3.0.0",
-    "mongoose": "^5.11.18",
-    "mongoose-autopopulate": "^0.12.3"
+    "mongoose": "^5.11.18"
   }
 }

@@ -1,3 +1,7 @@
+// TODO: deploy to Heroku
+// there is a problem with my config vars
+// review recording of lesson 
+
 const express = require('express');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
@@ -11,7 +15,7 @@ require('dotenv').config();
 // app configuration
 const app = express();
 const db = mongoose.connection;
-const port = 3000;
+const port = process.env.PORT || 3000;
 const mongodbURI = process.env.MONGODBURI
 
 // controllers
