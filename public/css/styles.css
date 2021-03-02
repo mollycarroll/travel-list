@@ -32,6 +32,10 @@ h1, h2 {
     margin-left: auto;
 }
 
+.navbar-space {
+    letter-spacing: 5px;
+}
+
 .container {
     width: 70%;
     margin-top: 10%;
