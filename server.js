@@ -55,7 +55,7 @@ mongoose.connection.once('open', ()=> {
 // Connection Error/Success
 // Define callback functions for various events
 db.on('error', err => console.log(err.message + ' is mongod not running?'));
-db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
+db.on('connected', () => console.log('mongo connected: ', MONGODBURI));
 db.on('disconnected', () => console.log('mongo disconnected'));
 
 
