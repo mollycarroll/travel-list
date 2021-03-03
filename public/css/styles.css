@@ -2,7 +2,7 @@
     border: 1px solid black;
 } */
 
-/* colors: https://coolors.co/c5a181-69626d-0a8754-2ab7ca-020100 */
+/* colors: https://coolors.co/c5a181-69626d-218380-73d2de-020100 */
 
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 
@@ -22,6 +22,10 @@ a:hover {
 
 h1, h2 {
     font-family: 'Merriweather', serif;
+}
+
+h5 {
+    font-size: 2vw;
 }
 
 .m-font {
