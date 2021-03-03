@@ -26,6 +26,6 @@ Express JS, EJS, MongoDB, Mongoose, Javascript, jQuery, Bootstrap, HTML, CSS
 
 ## Wireframes
 
-[Index wireframe](https://i.imgur.com/l7WcPuB.png)
-[Individual Place wireframe](https://i.imgur.com/nUfkXIb.png)
-[Log in/Sign up wireframe](https://i.imgur.com/5aOWid5.png)
+![Index wireframe](https://i.imgur.com/l7WcPuB.png)
+![Individual Place wireframe](https://i.imgur.com/nUfkXIb.png)
+![Log in/Sign up wireframe](https://i.imgur.com/5aOWid5.png)
