@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const countrySchema = new mongoose.Schema({
-    countryName: String, // would I refer to the Place schema here?
+    countryName: String,
     countryCode: String,
     flagImg: String
 });

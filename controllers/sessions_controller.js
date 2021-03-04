@@ -5,7 +5,6 @@ const router = express.Router();
 const User = require('../models/users.js');
 
 router.get('/new', (req, res) => {
-    console.log('sessions new route accessed');
     res.render('sessions/new.ejs', {
         currentUser: req.session.currentUser
     });

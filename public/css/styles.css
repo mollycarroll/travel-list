@@ -1,9 +1,3 @@
-/* * {
-    border: 1px solid black;
-} */
-
-/* colors: https://coolors.co/c5a181-69626d-218380-73d2de-020100 */
-
 @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 
 body {
@@ -118,8 +112,4 @@ h5 {
 
 .footer-link:hover {
     color: #218380;
-}
-
-.test {
-    background-color: crimson;
 }

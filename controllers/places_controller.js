@@ -14,11 +14,7 @@ places.get('/seedcountries', (req, res) => {
 
     axios.get(jsonURL).then((data) => {
 
-        console.log(data.data);
-
         for (let [key, value] of Object.entries(data.data)) { 
-
-            console.log(key, value);
 
             Country.create(
                 {   
@@ -37,13 +33,6 @@ places.get('/seedcountries', (req, res) => {
         res.send('Got seed country data');
     })
 });
-
-// this displays all countries as JSON in the browser
-// places.get('/flagurl', (req, res) => {
-//     Country.find({}, (error, allCountries) => {
-//         res.send(allCountries);
-//     })
-// })
 
 // routes
 //index
@@ -128,7 +117,7 @@ places.get('/:id/edit', isAuthenticated, (req, res) => {
 });
 
 // update
-places.put('/:id', (req, res)=>{
+places.put('/:id', (req, res) => {
 
     if(req.body.visited === 'on'){
         req.body.visited = true;
@@ -140,7 +129,7 @@ places.put('/:id', (req, res)=>{
 
         req.body.img = foundCountry.flagImg;
 
-        Place.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedModel)=> {
+        Place.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedModel) => {
             res.redirect('/places')
         })
 
