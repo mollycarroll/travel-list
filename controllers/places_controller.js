@@ -139,11 +139,15 @@ places.put('/:id', (req, res) => {
 // show
 places.get('/:id', (req, res) => {
     Place.findById(req.params.id, (error, foundPlace) => {
+        if (error) {
+            console.log(error)
+        } else {
         res.render('places/show.ejs', {
             place: foundPlace,
             currentUser: req.session.currentUser
         })
-    })
+    }
+})
 });
 
 // delete
