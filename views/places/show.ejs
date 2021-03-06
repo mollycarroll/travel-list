@@ -20,12 +20,14 @@
             <% } %>
             </p>
             <div class="d-flex justify-content-around">
+                <% if (currentUser) { %>
         <a href="/places/<%=place.id%>/edit"><button class="show-buttons">Edit Entry</button></a>
         <form action="/places/<%= place.id %>?_method=DELETE" method="POST">
             <button class="show-buttons">
         <input class="show-buttons" type="submit" value="Delete Entry"/>
             </button>
         </form>
+        <% } %>
     </div>
             </div>
             <div class="col d-flex justify-content-center">
