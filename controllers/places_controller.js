@@ -93,8 +93,12 @@ places.post('/', (req, res) => {
     } else {
         req.body.visited = false;
     }
-
+// test here for user typing something other than country
     Country.findOne({ countryName: req.body.country }, (error, foundCountry) => {
+        if (error) {
+            console.log(error);
+            res.redirect('/places');
+        }
         req.body.img = foundCountry.flagImg;
     
         Place.create(req.body, (error, createdPlace) => {
